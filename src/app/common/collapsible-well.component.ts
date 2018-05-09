@@ -14,6 +14,7 @@ import { Component, Input } from '@angular/core';
 })
 
 export class CollapsibleWellComponent {
+    // tslint:disable-next-line:no-inferrable-types
     visible: boolean = true;
 
     toggleContent() {
