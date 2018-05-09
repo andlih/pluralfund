@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 
 import {
   EventsListComponent,
@@ -23,6 +23,10 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
+
+// tslint:disable-next-line:prefer-const
+let toastr: Toastr = window['toastr'];
+// let jQuery = window['$'];
 
 @NgModule({
   imports: [
@@ -46,7 +50,7 @@ import { AuthService } from './user/auth.service';
   ],
 
   providers: [
-    ToastrService,
+    { provide: TOASTR_TOKEN, useValue: toastr },
     EventService,
     EventRouteActivator,
     AuthService,
