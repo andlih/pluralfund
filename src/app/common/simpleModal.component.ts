@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild, ElementRef, Inject } from '@angular/core';
 import { JQ_TOKEN } from './jQuery.service';
 @Component({
+    // tslint:disable-next-line:component-selector
     selector: 'simple-modal',
     template: `
     <div id="{{elementId}}" #modalcontainer class="modal fade" tabindex="-1">
